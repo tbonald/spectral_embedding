@@ -1,8 +1,10 @@
-# spectral_clustering
+# spectral_embedding
 
-Weighted spectral clustering
+Weighted spectral embedding of graphs
 
-This repository contains the implementation in Python of weighted spectral embedding.
+This repository contains the implementation in Python of weighted spectral embedding, as described in the paper:
+
+Weighted spectral embedding of graphs, by Thomas Bonald, Alexandre Hollocou, Marc Lelarge, Allerton 2018.
 
 
 ## Getting started
@@ -11,8 +13,21 @@ This repository contains the implementation in Python of weighted spectral embed
 from spectral_embedding import *
 ```
 
-## License
+Import Karate Club graph:
 
+```python
+graph = nx.karate_club_graph()
+ground_truth_labels = list(nx.get_node_attributes(graph,'club').values())
+adjacency = nx.to_scipy_sparse_matrix(graph)
+```
+
+Spectral embedding
+
+```python
+eigen_val, eigen_vec, embedding = spectral_embedding(adjacency)
+```
+
+## License
 
 Released under the 3-clause BSD license.
 
