@@ -13,11 +13,10 @@ Weighted spectral embedding of graphs, by Thomas Bonald, Alexandre Hollocou, Mar
 from spectral_embedding import *
 ```
 
-Import Karate Club graph:
+Import a toy graph:
 
 ```python
 graph = nx.karate_club_graph()
-ground_truth_labels = list(nx.get_node_attributes(graph,'club').values())
 adjacency = nx.to_scipy_sparse_matrix(graph)
 ```
 
