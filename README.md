@@ -28,6 +28,14 @@ Spectral embedding
 eigen_val, eigen_vec, embedding = spectral_embedding(adjacency)
 ```
 
+## Experiments
+
+Experiments on real datasets are available as a Jupyter notebook:
+
+```python
+example.ipynb
+```
+
 ## License
 
 Released under the 3-clause BSD license.
