@@ -11,6 +11,8 @@ Weighted spectral embedding of graphs, by Thomas Bonald, Alexandre Hollocou, Mar
 
 ```python
 from spectral_embedding import *
+
+spectral = SpectralEmbedding()
 ```
 
 Import a toy graph:
@@ -25,7 +27,8 @@ adjacency = nx.to_scipy_sparse_matrix(graph)
 Spectral embedding
 
 ```python
-eigen_val, eigen_vec, embedding = spectral_embedding(adjacency)
+spectral.fit(adjacency)
+embedding = spectral.embedding_
 ```
 
 ## Experiments
