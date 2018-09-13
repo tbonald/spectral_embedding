@@ -16,6 +16,7 @@ from spectral_embedding import *
 Import a toy graph:
 
 ```python
+import networkx as nx
 graph = nx.karate_club_graph()
 adjacency = nx.to_scipy_sparse_matrix(graph)
 ```
