@@ -72,11 +72,10 @@ class SpectralEmbedding:
         n_nodes, m_nodes = adj_matrix.shape
         if n_nodes != m_nodes:
             raise ValueError("The adjacency matrix must be a square matrix.")
+        if adj_matrix != adj_matrix.T:
+            raise ValueError("The adjacency matrix must be symmetric.")
         if csgraph.connected_components(adj_matrix, directed = False)[0] > 1:
             raise ValueError("The graph must be connected.")
-        
-        # make the adjacency symmetric
-        adj_matrix = adj_matrix.maximum(adj_matrix.T)
 
         # builds standard laplacian
         degrees = adj_matrix.dot(np.ones(n_nodes))
@@ -84,15 +83,16 @@ class SpectralEmbedding:
         laplacian = degree_matrix - adj_matrix
 
         # applies normalization by node weights
-        if node_weights:
+        if node_weights is not None:
             self.node_weights = node_weights
-        if self.node_weights == 'uniform':
-            weight_matrix = sparse.identity(n_nodes)
-        elif self.node_weights == 'degree':
-            with errstate(divide='ignore'):
-                degrees_inv_sqrt = 1.0 / sqrt(degrees)
-            degrees_inv_sqrt[isinf(degrees_inv_sqrt)] = 0
-            weight_matrix = sparse.diags(degrees_inv_sqrt, format = 'csr')
+        if type(self.node_weights) == str:
+            if self.node_weights== 'uniform':
+                weight_matrix = sparse.identity(n_nodes)
+            elif self.node_weights == 'degree':
+                with errstate(divide='ignore'):
+                    degrees_inv_sqrt = 1.0 / sqrt(degrees)
+                degrees_inv_sqrt[isinf(degrees_inv_sqrt)] = 0
+                weight_matrix = sparse.diags(degrees_inv_sqrt, format = 'csr')
         else:
             if len(self.node_weights) != n_nodes:
                 raise ValueError('node_weights must be an array of length n_nodes.')
