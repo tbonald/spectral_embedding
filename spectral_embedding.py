@@ -8,7 +8,7 @@ Authors:
 Thomas Bonald <thomas.bonald@telecom-paristech.fr>
 Nathan De Lara <nathan.delara@telecom-paristech.fr>
 
-Spectral embedding by decomposition of the normalized graph Laplacian.
+Weighted spectral embedding of a graph
 """
 
 import numpy as np
@@ -29,8 +29,8 @@ class SpectralEmbedding:
 
         References
         ----------
-        * Weighted Spectral Embedding, T. Bonald
-        * Laplacian Eigenmaps for Dimensionality Reduction and Data Representation, M. Belkin, P. Niyogi
+        * T. Bonald, A. Hollocou, M. Lelarge. Weighted Spectral Embedding of Graphs (2018)
+        * A. Ng, M. Jordan, Y. Weiss. On spectral clustering: Analysis and an algorithm (2002)
         """
     
     def __init__(self, embedding_dimension = 100, node_weights = 'uniform', eigenvalue_normalization = True):
