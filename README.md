@@ -33,10 +33,10 @@ embedding = spectral.embedding_
 
 ## Experiments
 
-Experiments on real datasets are available as a Jupyter notebook:
+Experiments on a real dataset are available as a Jupyter notebook:
 
 ```python
-example.ipynb
+experiments.ipynb
 ```
 
 ## License
