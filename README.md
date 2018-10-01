@@ -4,7 +4,7 @@ Weighted spectral embedding of graphs
 
 This repository contains the implementation in Python of weighted spectral embedding, as described in the paper:
 
-Weighted spectral embedding of graphs, by Thomas Bonald, Alexandre Hollocou, Marc Lelarge, Allerton 2018.
+[Weighted spectral embedding of graphs](https://arxiv.org/abs/1809.11115), by Thomas Bonald, Alexandre Hollocou, Marc Lelarge, Allerton 2018.
 
 
 ## Getting started
